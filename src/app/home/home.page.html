@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <app-my-header></app-my-header>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+        <ion-card-header>
+
+            <ion-card-title>
+                🎂 Birthdays 🎉
+            </ion-card-title>
+
+
+
+
+        </ion-card-header>
+        <ion-button (click)="showDetail(birthdays)">Додати день народження
+            <ion-icon name="add"> </ion-icon>
+        </ion-button>
+        
+        <ion-list inset>
+            <ion-item *ngFor="let birthday of birthdays | async" (click)="showDetail(birthday)">
+                <div item-left>{{ birthday.Name }}</div>
+                <div item-right>{{ birthday.Date | date:'yMMMMd' }}</div>
+            </ion-item>
+        </ion-list>
+       
+    </ion-card>
+</ion-content>

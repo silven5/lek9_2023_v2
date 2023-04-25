@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <app-my-header></app-my-header>
+    </ion-toolbar>
+</ion-header>
+<ion-header>
+
+    <ion-title><h1>{{ action }} Birthday</h1></ion-title>
+
+    <ion-button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+    </ion-button>
+
+
+</ion-header>
+
+<ion-content padding class="details">
+    <ion-list>
+        <ion-item>
+            <ion-label>Name</ion-label>
+            <input text-right type="text" [(ngModel)]="birthday.Name">
+        </ion-item>
+        <ion-item>
+            <ion-label>Birthday</ion-label>
+            <input type="text"  [(ngModel)]="isoDate">
+        </ion-item>
+    </ion-list>
+    <ion-button block (click)="save()">Save</ion-button>
+    <ion-button block (click)="update()">Update</ion-button>
+</ion-content>
