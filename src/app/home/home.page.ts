@@ -29,7 +29,7 @@ export class HomePage {
     Name: "Name",
     Date: new Date()
   }
-  // birs: Birthday[] = [];
+  birs: Birthday[] = [];
   async showDetail(birthday: any) {
 
     const modal = await this.modalCtrl.create({
@@ -43,22 +43,22 @@ export class HomePage {
 
     modal.onDidDismiss()
       .then((data) => {
-        console.log("HIII");
+        console.log("Story");
         console.log(this.birthdays);
       });
-    // modal.onDidDismiss()
-    //   .then((data) => {
-    //     console.log(data);
-    //     const br1 = data['data']; // Тут обираємо день народження!
-    //     console.log('data came back from modal');
-    //     console.log(br1);
-    //     this.addBrday(br1);
-    //   });
+    modal.onDidDismiss()
+      .then((data) => {
+        console.log(data);
+        const br1 = data['data']; // Тут обираємо день народження!
+        console.log('data came back from modal');
+        console.log(br1);
+        this.addBrday(br1);
+      });
 
   }
-  // addBrday(br: Birthday) {
-  //   if (br as Birthday)
-  //     this.birs.push(br);
-  //   console.log(br);
-  // }
+  addBrday(br: Birthday) {
+    if (br as Birthday)
+      this.birs.push(br);
+    console.log(br);
+  }
 }

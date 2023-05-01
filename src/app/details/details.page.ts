@@ -15,6 +15,7 @@ import { Birthday } from '..//models/birthday';
 export class DetailsPage implements OnInit {
   public birthday!: Birthday;
   public isNew = true;
+  public isNew1 = true;
   public action = 'Add';
   public isoDate = '';
   // public isNew1 = true;
@@ -47,13 +48,13 @@ export class DetailsPage implements OnInit {
 
   }
   update() {
-    // this.isNew1 = false;
+    this.isNew1 = false;
     this.store.dispatch(this.birthdayActions.updateBirthday(this.birthday));
     this.dismiss();
   }
 
   delete() {
-    // this.isNew1 = false;
+    this.isNew1 = false;
     this.store.dispatch(this.birthdayActions.deleteBirthday(this.birthday));
     this.dismiss();
   }
@@ -61,19 +62,18 @@ export class DetailsPage implements OnInit {
     console.log(this.birthday);
     console.log(this.birthday.Name);
     console.log(this.birthday.Date);
-    // if (this.isNew1) {
-    //   this.modalCtrl.dismiss(
-    //     // 'dismissed': true
+    if (this.isNew1) {
+      this.modalCtrl.dismiss(
+        // 'dismissed': true
 
-    //     this.birthday
-    //   );
-    // }
-    // else
-    this.modalCtrl.dismiss(
-      { 'dismissed': true }
+        this.birthday
+      );
+    }
+    else
+      this.modalCtrl.dismiss(
+        { 'dismissed': true }
 
-
-    );
+      );
 
   }
 
