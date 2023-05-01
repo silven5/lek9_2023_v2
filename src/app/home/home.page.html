@@ -20,12 +20,12 @@
             <ion-icon name="add"> </ion-icon>
         </ion-button>
         
-        <ion-list inset>
-            <ion-item *ngFor="let birthday of birthdays | async" (click)="showDetail(birthday)">
-                <div item-left>{{ birthday.Name }}</div>
-                <div item-right>{{ birthday.Date | date:'yMMMMd' }}</div>
+        <!-- <ion-list inset>
+            <ion-item *ngFor="let birthday of birs " (click)="showDetail(birthday)">
+                <ion-label item-left>{{ birthday.Name }}</ion-label >
+                <ion-label  item-right>{{ birthday.Date | date:'yMMMMd' }}</ion-label >
             </ion-item>
-        </ion-list>
+        </ion-list> -->
        
     </ion-card>
 </ion-content>

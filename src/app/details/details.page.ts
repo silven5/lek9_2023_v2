@@ -17,7 +17,7 @@ export class DetailsPage implements OnInit {
   public isNew = true;
   public action = 'Add';
   public isoDate = '';
-
+  // public isNew1 = true;
   constructor(
     private modalCtrl: ModalController,
     private navParams: NavParams,
@@ -29,6 +29,7 @@ export class DetailsPage implements OnInit {
     if (editBirthday) {
       this.birthday = editBirthday;
       this.isNew = false;
+
       this.action = 'Edit';
       console.log(this.isoDate);
       if (this.birthday.Date) {
@@ -46,11 +47,13 @@ export class DetailsPage implements OnInit {
 
   }
   update() {
+    // this.isNew1 = false;
     this.store.dispatch(this.birthdayActions.updateBirthday(this.birthday));
     this.dismiss();
   }
 
   delete() {
+    // this.isNew1 = false;
     this.store.dispatch(this.birthdayActions.deleteBirthday(this.birthday));
     this.dismiss();
   }
@@ -58,9 +61,20 @@ export class DetailsPage implements OnInit {
     console.log(this.birthday);
     console.log(this.birthday.Name);
     console.log(this.birthday.Date);
-    this.modalCtrl.dismiss({
-      'dismissed': true
-    });
+    // if (this.isNew1) {
+    //   this.modalCtrl.dismiss(
+    //     // 'dismissed': true
+
+    //     this.birthday
+    //   );
+    // }
+    // else
+    this.modalCtrl.dismiss(
+      { 'dismissed': true }
+
+
+    );
+
   }
 
 

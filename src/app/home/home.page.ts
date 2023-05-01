@@ -24,13 +24,41 @@ export class HomePage {
 
     this.birthdays = this.store.select(state => state.birthdays);
   }
-  async showDetail(birthday: any) {
-    console.log("Hello!!!");
-    let modal = await this.modalCtrl.create({
-      component: DetailsPage,
-      componentProps: { birthday }
-    });
-    await modal.present();
+  br: Birthday = {
+    id: "",
+    Name: "Name",
+    Date: new Date()
   }
+  // birs: Birthday[] = [];
+  async showDetail(birthday: any) {
 
+    const modal = await this.modalCtrl.create({
+      component: DetailsPage,
+      componentProps: {
+        birthday
+          : this.br
+      }
+    });
+    modal.present();
+
+    modal.onDidDismiss()
+      .then((data) => {
+        console.log("HIII");
+        console.log(this.birthdays);
+      });
+    // modal.onDidDismiss()
+    //   .then((data) => {
+    //     console.log(data);
+    //     const br1 = data['data']; // Тут обираємо день народження!
+    //     console.log('data came back from modal');
+    //     console.log(br1);
+    //     this.addBrday(br1);
+    //   });
+
+  }
+  // addBrday(br: Birthday) {
+  //   if (br as Birthday)
+  //     this.birs.push(br);
+  //   console.log(br);
+  // }
 }
