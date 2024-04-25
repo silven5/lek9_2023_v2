@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavParams, NavController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
-
 import { AppState } from '../services/app-state';
 import { Birthday } from '..//models/birthday';
 
@@ -23,29 +22,27 @@ export class DetailsPage implements OnInit {
     private modalCtrl: ModalController,
     private navParams: NavParams,
     private store: Store<AppState>,
-    private birthdayActions: BirthdayActions) { }
+    private birthdayActions: BirthdayActions
+  ) {}
   ionViewWillEnter() {
     let editBirthday = this.navParams.get('birthday');
 
     if (editBirthday) {
       this.birthday = editBirthday;
       this.isNew = false;
-
       this.action = 'Edit';
-      console.log(this.isoDate);
       if (this.birthday.Date) {
         this.isoDate = this.birthday.Date.toISOString().slice(0, 10);
+        console.log('ISO DATE');
+        console.log(this.isoDate);
       }
     }
   }
   save() {
     this.birthday.Date = new Date(this.isoDate);
-
     if (!this.isNew)
       this.store.dispatch(this.birthdayActions.addBirthday(this.birthday));
-
     this.dismiss();
-
   }
   update() {
     this.isNew1 = false;
@@ -65,20 +62,10 @@ export class DetailsPage implements OnInit {
     if (this.isNew1) {
       this.modalCtrl.dismiss(
         // 'dismissed': true
-
         this.birthday
       );
-    }
-    else
-      this.modalCtrl.dismiss(
-        { 'dismissed': true }
-
-      );
-
+    } else this.modalCtrl.dismiss({ dismissed: true });
   }
 
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -3,20 +3,19 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-import { MyHeaderComponent } from './../my-header/my-header.component';
+
 import { HomePageRoutingModule } from './home-routing.module';
 import { Store, StoreModule } from '@ngrx/store';
-
-
+import { MyHeaderComponent } from '../my-header/my-header.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
   ],
   declarations: [HomePage, MyHeaderComponent],
-  providers: [Store, StoreModule]
+  providers: [Store, StoreModule],
 })
-export class HomePageModule { }
+export class HomePageModule {}
